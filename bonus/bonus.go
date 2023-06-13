@@ -17,5 +17,12 @@ type LinkedList struct {
 }
 
 func MergeTwoLists(list1 *LinkedList, list2 *LinkedList) *LinkedList {
-	return nil
+	if list1.Head == nil {
+		return list2
+	}
+	if list2.Head == nil {
+		return list1
+	}
 }
+
+//continuar dps
