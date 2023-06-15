@@ -152,6 +152,8 @@ elemento.
 
 Você deve implementar uma solução com complexidade de tempo linear e sem memória extra.
 
+É O INDICE, erro do professor :D
+
 ### Exemplo de entrada
 
 ```

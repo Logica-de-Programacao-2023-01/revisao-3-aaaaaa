@@ -17,5 +17,39 @@ type LinkedList struct {
 }
 
 func MergeTwoLists(list1 *LinkedList, list2 *LinkedList) *LinkedList {
-	return nil
+	if list1.Head == nil {
+		return list2
+	}
+	if list2.Head == nil {
+		return list1
+	}
+	listaMesclada := LinkedList{}
+	ponteiro1 := list1.Head
+	ponteiro2 := list2.Head
+
+	if ponteiro1.Value <= ponteiro2.Value {
+		listaMesclada.Head = ponteiro1
+		ponteiro1 = ponteiro1.Next
+	} else {
+		listaMesclada.Head = ponteiro2
+		ponteiro2 = ponteiro2.Next
+	}
+	ponteiroAtual := listaMesclada.Head
+
+	for ponteiro1 != nil && ponteiro2 != nil {
+		if ponteiro1.Value <= ponteiro2.Value {
+			ponteiroAtual.Next = ponteiro1
+			ponteiro1 = ponteiro1.Next
+		} else {
+			ponteiroAtual.Next = ponteiro2
+			ponteiro2 = ponteiro2.Next
+		}
+		ponteiroAtual = ponteiroAtual.Next
+	}
+	if ponteiro1 != nil {
+		ponteiroAtual.Next = ponteiro1
+	} else if ponteiro2 != nil {
+		ponteiroAtual.Next = ponteiro2
+	}
+	return &listaMesclada
 }
